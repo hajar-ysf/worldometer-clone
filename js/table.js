@@ -242,9 +242,7 @@ console.log(countries.length)
                   "todayRecovered",
                   "active",
                   "tests",
-                  "testsPerOneMillion",
                   "critical",   
-                  "continent",
                   "population"];
       let row=table.insertRow(table.length);
       
