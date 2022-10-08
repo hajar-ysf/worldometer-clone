@@ -2,7 +2,7 @@
 
 
         anychart.data.loadJsonFile(
-            'https://corona.lmao.ninja/v2/countries?yesterday&sort',
+            'https://disease.sh/v3/covid-19/countries/',
             function(data) {
 
                 var geoData = [];
