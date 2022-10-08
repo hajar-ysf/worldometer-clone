@@ -1,0 +1,78 @@
+/* world svg animation */
+
+.log-world {
+    color: #7d89e9;
+    position: relative;
+    animation: world 2.1s 0.5s 1;
+}
+
+@keyframes world {
+    0% {
+        top: -2px;
+    }
+    1% {
+        top: -10px;
+        left: 5px;
+    }
+    2% {
+        top: -20px;
+        left: 10px;
+    }
+    10% {
+        top: -20px;
+        left: 50px;
+    }
+    50% {
+        top: -20px;
+        left: 143px;
+    }
+    60% {
+        top: 20px;
+    }
+    61% {
+        top: 20px;
+        left: 143px;
+    }
+    70% {
+        top: 20px;
+        left: 50px;
+    }
+    90% {
+        top: 20px;
+        left: 10px;
+    }
+    95% {
+        top: 20px;
+        left: 0px;
+    }
+    100% {
+        top: 0px;
+        left: 0px;
+    }
+}
+
+
+/* end world svg animation*/
+
+
+/* virus svg animation*/
+
+.corona {
+    color: #7d89e9;
+    animation: virus 2s infinite;
+}
+
+@keyframes virus {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* end virus svg animation*/

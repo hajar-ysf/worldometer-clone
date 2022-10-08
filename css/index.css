@@ -1,0 +1,175 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #110266;
+}
+
+.nav-list li a,
+.uk-logo,
+.nav-toggle li a {
+    color: white;
+}
+
+#areachart,
+#bar-Chart {
+    width: 100%;
+    height: 100%;
+}
+
+.graphes {
+    background-color: #4d58ae;
+}
+
+#donut {
+    width: 100%;
+    height: 90%;
+}
+
+#daily {
+    width: 100%;
+    height: 75%;
+}
+
+#map,
+#line-Chart {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 400px;
+}
+
+.graphe-title {
+    color: #7862f9;
+}
+
+.tablink {
+    color: #fff;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 16px 16px;
+    font-size: 15px;
+    width: 50%;
+    height: 50px;
+}
+
+#countriesButton:hover {
+    background-color: #b6c2dd !important;
+    color: #503fb4;
+}
+
+#lastMonthButton:hover {
+    background-color: #b6c2dd !important;
+    color: #503fb4;
+}
+
+.tabcontent {
+    background-color: rgba(255, 255, 255, 0);
+    color: white;
+    display: none;
+    padding-bottom: 20px;
+    text-align: center;
+    height: auto;
+}
+
+
+/* boxes */
+
+.boxes div:first-child,
+.card-1,
+.card,
+#enter_country {
+    border: 1px solid rgb(202, 199, 200);
+    border-radius: 5px;
+    box-shadow: 1px 1px 6px rgb(150, 146, 147);
+}
+
+.boxes div:first-child:hover,
+.card-1:hover {
+    border: 1px solid #d0d1e6;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px #8c6bb1;
+}
+
+
+/* end boxes */
+
+#search {
+    color: #503fb4;
+}
+
+#search:hover {
+    box-shadow: 1px 1px 2px #503fb4;
+}
+
+#enter_country {
+    padding-left: 10px;
+}
+
+.underline {
+    width: 150px;
+    height: 10px;
+    margin: 0px auto;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    background-color: #503fb4;
+    border-radius: 10px;
+}
+
+table,
+th,
+td {
+    border: 1px solid;
+}
+
+td {
+    width: 10%;
+}
+
+/* th:not(th:first-child) {
+    color: #110266!important;
+} */
+
+tr td:first-child,tr th:first-child,th{
+    color:white !important;
+    background-color: #503fb4;
+}
+
+.pagination {
+    margin: 0px 0px;
+}
+
+.pagination>button {
+    color: #fff;
+    border: 1px solid #503fb4;
+    border-radius: 2px;
+    background-color: #503fb4;
+}
+
+.pagination>button:hover {
+    background-color: #ffffff;
+    color: #503fb4;
+    text-decoration: underline;
+}
+
+.direction:hover {
+    color: hsl(0, 0%, 100%);
+}
+
+footer {
+    background-color: #311d9f;
+}
+footer div div  h4{
+    color:#8c99ff;
+}
+.footer-list-link li a {
+    color: white;
+}
+
+.footer-links a {
+    color: #9ebcda;
+}

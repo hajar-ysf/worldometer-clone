@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Worldometers coronavirus</title>
+    <link rel="icon" type="image/png" href="images/icon_site.png" />
+    <link rel="stylesheet" href="css/uikit.min.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/animation.css" />
+    <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
+    <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
+    <script src="https://kit.fontawesome.com/b1ec277fbb.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-map.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-data-adapter.min.js"></script>
+    <script src="https://cdn.anychart.com/geodata/latest/custom/world/world.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.15/proj4.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/themes/light_earth.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-cartesian-3d.min.js"></script>
+
+
+</head>
+
+<body>
+    <!--loader page section
+    <div class="box">
+        <div class="loader">
+            <span class="span-loader"><b class="b-loader"><i class="fas fa-virus virus-loader"></i></b></span>
+            <div class="cirle"></div>
+            <div class="cirle"></div>
+
+        </div>
+        <p>Coronavirus ...</p>
+    </div>
+     end loader page section-->
+
+
+
+
+    <!-- header section-->
+    <header class="header  uk-margin-medium-bottom" uk-sticky>
+        <nav class="uk-container uk-navbar uk-nav-center">
+            <div class="uk-navbar-left">
+                <a class="uk-navbar-item uk-logo" href="#">
+                    <strong>W<span class="log uk-text-large"><span class="log-world"><i class="fas fa-globe-africa"></i></span>rldometers
+                        </strong></a>
+            </div>
+
+
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav nav-list uk-visible@m">
+                    <li><a class="uk-text-large" href="#">Home</a></li>
+                    <li><a id="home" class="uk-text-large" href="#">C<span class="corona"><i class="fas fa-virus"></i></span>ronavirus</a></li>
+                    <li><a class="uk-text-large" href="#">Population</a></li>
+                    <li><a class="uk-text-large" href="#">About</a></li>
+                </ul>
+                <a href="#" class="uk-navbar-toggle uk-hidden@m uk-background-default" uk-toggle="target: #offcanvas-nav-primary"><span uk-navbar-toggle-icon></span></a>
+            </div>
+        </nav>
+        <div id="offcanvas-nav-primary" uk-offcanvas="overlay: true">
+            <div class="uk-offcanvas-bar uk-flex uk-flex-column " style="background-color: #110266;">
+
+                <ul class="uk-nav uk-nav-primary uk-nav-left uk-margin-auto-vertical nav-toggle">
+                    <li><a href="#"><span class="uk-margin-small-right"><i class="fas fa-home"></i></span> Home</a></li>
+                    <li class="uk-nav-divider"></li>
+                    <li><a href="#"><span class="uk-margin-small-right corona"><i class="fas fa-virus"></i></span>
+                                Coronavirus</a></li>
+                    <li class="uk-nav-divider"></li>
+                    <li><a href="#"><span class="uk-margin-small-right"><i class="fas fa-users"></i></span>
+                                Population</a></li>
+                    <li class="uk-nav-divider"></li>
+                    <li><a href="#"><span class="uk-margin-small-right"><i class="fas fa-address-card"></i></span> About</a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+
+    </header>
+
+
+    <!-- end header-->
+    <div class='fullpage uk-padding-small'>
+        <!-- map updates-->
+
+        <div class="uk-child-width-1-2@l uk-grid-small uk-grid-match" uk-grid>
+            <div>
+                <div class="uk-grid-small uk-grid-match" uk-grid>
+                    <div class="boxes uk-width-1-2@s ">
+                        <div class="uk-card uk-card-default uk-card-body uk-padding-small uk-text-center ">
+                            <div class="uk-card-badge uk-label">Total</div>
+                            <p class="uk-card-title" style="color:#f03ac2;"> Deaths</p>
+                            <p class="deaths "></p>
+                        </div>
+                    </div>
+                    <div class="boxes  uk-width-1-2@s">
+                        <div class="uk-card uk-card-default uk-card-body uk-padding-small uk-text-center">
+                            <div class="uk-card-badge uk-label ">Total</div>
+                            <p class="uk-card-title" style="color:#0bceff;"> Cases</p>
+                            <p class="cases  "></p>
+                        </div>
+                    </div>
+                    <div class="boxes uk-width-1-2@s">
+                        <div class="uk-card uk-card-default uk-card-body uk-padding-small uk-text-center">
+                            <div class="uk-card-badge uk-label">Total</div>
+                            <p class="uk-card-title" style="color:#24fa41;"> Recovered</p>
+                            <p class="recovered "></p>
+                        </div>
+                    </div>
+                    <div class="boxes  uk-width-1-2@s">
+                        <div class="uk-card uk-card-default uk-card-body uk-padding-small uk-text-center">
+                            <div class="uk-card-badge uk-label">Total</div>
+                            <p class="uk-card-title" style="color:#9ebcda;"> Tests</p>
+                            <p class="tests "></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="uk-card uk-card-default uk-card-body uk-padding-remove card-1" style="height:250px">
+
+                    <div id="areachart"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="uk-card uk-card-default uk-card-body uk-padding-remove uk-margin-medium-top">
+            <div class=" map">
+                <script src='js/map.js'></script>
+                <div id="map"></div>
+            </div>
+        </div>
+
+
+
+
+
+        <!--Countries data -->
+        <div class="uk-margin-medium-top graphes">
+            <button id="countriesButton" class="tablink">Countries</button>
+            <button id="lastMonthButton" class="tablink">Last Month</button>
+            <div class="uk-container uk-center  uk-margin-small-bottom">
+                <div class="search-bar uk-margin-medium-top ">
+                    <form class="uk-search uk-width-1-1">
+                        <button id="search" type="button" class="uk-search-icon-flip uk-remove-padding" uk-search-icon></button>
+                        <input class="uk-search-input" list="countries-search" id="enter_country" placeholder="Search by country">
+                        <datalist id="countries-search">
+
+                        </datalist>
+                    </form>
+                </div>
+            </div>
+
+            <div id="Countries" class="tabcontent">
+                <div class="uk-child-width-1-2@l uk-grid-small uk-grid-match uk-padding-small uk-margin-medium-bottom " uk-grid>
+                    <div>
+                        <div class="uk-card uk-card-default uk-card-body card" style="height:700px">
+                            <h4 class="uk-text-center graphe-title">Daily Coronavirus Factors</h4>
+                            <div id="bar-Chart"></div>
+                        </div>
+
+                    </div>
+                    <div>
+                        <div style="height:700px">
+                            <div>
+                                <div class="uk-card  uk-card-body uk-margin-small-bottom uk-padding-remove uk-background-default card" style="height:392px">
+                                    <h4 class="uk-text-center uk-margin-remove-bottom uk-margin-medium-top graphe-title">Yearly Coronavirus Factors</h4>
+                                    <div id="donut"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="uk-card  uk-card-body uk-padding-remove uk-background-default card" style="height:298px">
+                                    <h4 class="uk-text-center uk-margin-remove-bottom uk-margin-medium-top graphe-title">Data PerOneMillion</h4>
+                                    <div id='daily'></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div id="Lastm" class="tabcontent">
+                <div class="uk-container">
+                    <div id="line-Chart" class="uk-overflow"></div>
+
+                </div>
+            </div>
+        </div>
+        <!--end of countries data-->
+
+
+
+
+
+
+        <!-- table data section -->
+        <section class="uk-container uk-background-default uk-margin-medium-top">
+            <div class="uk-text-center">
+                <h3><i class="fas fa-table"></i> data table </h3>
+                <div class="underline"></div>
+            </div>
+            <div>
+                <table id="table" class="uk-table uk-table-small uk-overflow-auto uk-table-divider">
+                    <thead>
+                        <tr>
+                            <th>Country</th>
+                            <th>Total Cases</th>
+                            <th>New Cases</th>
+                            <th>Total Deaths</th>
+                            <th>New Deaths</th>
+                            <th>Total Recovered</th>
+                            <th>New Recovered</th>
+                            <th>Active Cases</th>
+                            <th>Tests</th>
+                            <th>Tests per 1 Million</th>
+                            <th>Critical</th>
+                            <th>Continent</th>
+                            <th>Population</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+
+                </table>
+            </div>
+            <div class="uk-text-center pagination">
+                <button type="button" class="direction"><i class="fas fa-chevron-left"></i></button>
+                <button type="button" class="lien">1</button>
+                <button type="button" class="lien">2</button>
+                <button type="button" class="lien">3</button>
+                <button type="button" class="lien">4</button>
+                <button type="button" class="lien">5</button>
+                <button type="button" class="lien">6</button>
+                <button type="button" class="lien">7</button>
+                <button type="button" class="lien">8</button>
+                <button type="button" class="lien">9</button>
+                <button type="button" class="lien">10</button>
+                <button type="button" class="lien">11</button>
+                <button type="button" class="lien">12</button>
+                <button type="button" class="lien">13</button>
+                <button type="button" class="lien">14</button>
+                <button type="button" class="lien">15</button>
+                <button type="button" class="lien">16</button>
+                <button type="button" class="lien">17</button>
+                <button type="button" class="lien">18</button>
+                <button type="button" class="lien">19</button>
+                <button type="button" class="lien">20</button>
+                <button type="button" class="lien">21</button>
+                <button type="button" class="lien">22</button>
+                <button type="button" class="direction"><i class="fas fa-chevron-right"></i></button>
+
+            </div>
+        </section>
+        <!-- end table data section -->
+    </div>
+    <!-- footer section -->
+    <footer class="uk-margin-medium-top  uk-padding-large">
+        <div class="uk-grid-small uk-child-width-1-3@s uk-flex-center footer uk-padding-medium" uk-grid>
+            <div class="uk-text-center">
+                <h4>WORLDOMETERS</h4>
+                <p style="color:#9ebcda">COVID-19 CORONAVIRUS PANDEMIC</p>
+            </div>
+            <div class="uk-text-center">
+                <h4>Important Links</h4>
+                <ul class="uk-list footer-list-link">
+
+                    <li><a href="#">Coronavirus</a></li>
+                    <li><a href="#">Population</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </div>
+            <div class="uk-text-center">
+                <h4>Contact Us</h4>
+                <div class="uk-align-center footer-links">
+                    <a href="#" class="uk-icon-button uk-margin-small-right" uk-icon="twitter"></a>
+                    <a href="#" class="uk-icon-button  uk-margin-small-right" uk-icon="facebook"></a>
+                    <a href="#" class="uk-icon-button" uk-icon="youtube"></a>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+
+
+
+
+    <!--end footer section -->
+    <script src="js/area.js"></script>
+    <script src="js/jquery-3.6.0.js"></script>
+    <script src="js/uikit.min.js"></script>
+    <script src="js/uikit-icons.min.js"></script>
+    <script src="js/table.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/bar.js"></script>
+    <script src="js/line.js"></script>
+    <script src="js/donut.js"></script>
+
+
+</body>
+
+</html>
